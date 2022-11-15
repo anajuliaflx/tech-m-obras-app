@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,8 +29,8 @@ public class ObraLocalizacao {
     @Column(length = 45, nullable = false)
     private String longitude;
 
-    @OneToMany
-    @JoinColumn(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "idObra")
     private Obra obraId;
 
     public ObraLocalizacao(Long id, String estado, String cidade, String latitude, String longitude, Obra obraId) {

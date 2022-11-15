@@ -1,4 +1,4 @@
-package com.techmobras.model;
+package com.techmobras.techmobras.model;
 
 import java.io.Serializable;
 

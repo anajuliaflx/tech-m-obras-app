@@ -1,7 +1,13 @@
 package com.techmobras.techmobras.dto;
 
 public class ObraLocalizacaoDTO {
-    
+
+    private String estado;
+    private String cidade;
+    private String longitute;
+    private String latitude;
+
+	
     public String getEstado() {
         return estado;
     }
@@ -26,10 +32,5 @@ public class ObraLocalizacaoDTO {
     public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
-
-    private String estado;
-    private String cidade;
-    private String longitute;
-    private String latitude;
 
 }
