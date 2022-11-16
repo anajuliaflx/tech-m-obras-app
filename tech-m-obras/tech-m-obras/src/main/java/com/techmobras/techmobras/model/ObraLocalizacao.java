@@ -41,6 +41,9 @@ public class ObraLocalizacao {
         this.obraId = obraId;
     }
 
+    public ObraLocalizacao() {
+    }
+
     public Long getId() {
         return id;
     }
