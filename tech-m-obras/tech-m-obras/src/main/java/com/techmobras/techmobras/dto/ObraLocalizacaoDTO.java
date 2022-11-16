@@ -1,19 +1,13 @@
 package com.techmobras.techmobras.dto;
 
-import javax.validation.constraints.NotBlank;
-
 public class ObraLocalizacaoDTO {
 
-    @NotBlank
     private String estado;
 
-    @NotBlank
     private String cidade;
 
-    @NotBlank
     private String longitute;
 
-    @NotBlank
     private String latitude;
 
 
