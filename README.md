@@ -1,5 +1,6 @@
 # Projeto POO Java e Spring Boot
 Projeto desenvolvido para obtenção de nota na disciplina de Programação Avançada, lecionada pelo professor Alexandre de Souza Jr.
+
 #### Equipe desenvolvedora
 Ana Julia Felix de Oliveira - 01429405 <br/>
 Ariel Martins Correia - 01348219 <br/>
