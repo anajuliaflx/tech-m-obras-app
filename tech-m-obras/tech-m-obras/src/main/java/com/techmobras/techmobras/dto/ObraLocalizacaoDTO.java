@@ -7,7 +7,7 @@ public class ObraLocalizacaoDTO {
     private String longitute;
     private String latitude;
 
-	
+
     public String getEstado() {
         return estado;
     }
