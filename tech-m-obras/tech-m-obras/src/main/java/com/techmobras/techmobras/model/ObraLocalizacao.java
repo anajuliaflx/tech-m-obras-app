@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,7 +30,7 @@ public class ObraLocalizacao {
     @Column(length = 45, nullable = false)
     private String longitude;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "idObra")
     private Obra obraId;
 
