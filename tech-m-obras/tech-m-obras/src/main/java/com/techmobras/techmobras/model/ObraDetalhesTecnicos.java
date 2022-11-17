@@ -3,7 +3,6 @@ package com.techmobras.techmobras.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.io.Serializable;
-import java.math.BigInteger;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,37 +15,36 @@ import com.techmobras.techmobras.enums.ObraRisco;
 import com.techmobras.techmobras.enums.ObraTipo;
 
 @Entity
-public class ObraDetalhesTecnicos implements Serializable  {
-	
+public class ObraDetalhesTecnicos implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(length = 45, nullable = false)
-    private ObraTipo tipo;
+	@Column(length = 45, nullable = false)
+	private ObraTipo tipo;
 
-    @Column(length = 45, nullable = false)
-    private ObraRisco risco;
+	@Column(length = 45, nullable = false)
+	private ObraRisco risco;
 
-    @OneToOne
-    @JoinColumn(name = "idObra")
-    private Obra obraId;
+	@OneToOne
+	@JoinColumn(name = "idObra")
+	private Obra obraId;
 
-	public ObraDetalhesTecnicos(BigInteger id, ObraTipo tipo, ObraRisco risco, Obra obraId) {
+	public ObraDetalhesTecnicos(Long id, ObraTipo tipo, ObraRisco risco, Obra obraId) {
 		this.id = id;
 		this.tipo = tipo;
 		this.risco = risco;
 		this.obraId = obraId;
 	}
 
-	public BigInteger getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(BigInteger id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -73,6 +71,5 @@ public class ObraDetalhesTecnicos implements Serializable  {
 	public void setObraId(Obra obraId) {
 		this.obraId = obraId;
 	}
-    
-    
+
 }
