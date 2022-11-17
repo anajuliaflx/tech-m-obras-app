@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -39,6 +39,9 @@ public class ObraLocalizacao {
         this.latitude = latitude;
         this.longitude = longitude;
         this.obraId = obraId;
+    }
+
+    public ObraLocalizacao() {
     }
 
     public Long getId() {
