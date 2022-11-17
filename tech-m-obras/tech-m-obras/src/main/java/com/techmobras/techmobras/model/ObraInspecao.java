@@ -21,14 +21,24 @@ public class ObraInspecao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @OneToOne
     @JoinColumn(name = "obra_id", referencedColumnName="id")
+    @Column(nullable = false)
     private Obra obraId;
+
     @Enumerated
+    @Column(nullable = false, length = 45)
     private FrequenciaInspecao frequencia;
+
+    @Column(nullable = false)
     private int mes;
+
     @Enumerated
+    @Column(nullable = false, length = 45)
     private StatusInspecao status;
+
+    @Column(nullable = false)
     private int prioridade;
 
     @JsonIgnore

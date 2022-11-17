@@ -16,10 +16,16 @@ public class Inspecao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @ManyToOne
     @JoinColumn(name = "obra_inspecao_id", referencedColumnName="id")
+    @Column(nullable = false)
     private ObraInspecao obraInspecaoId;
+
+    @Column(nullable = false)
     private LocalDate data;
+
+    @Column(nullable = false)
     private String observacoes;
 
 }
