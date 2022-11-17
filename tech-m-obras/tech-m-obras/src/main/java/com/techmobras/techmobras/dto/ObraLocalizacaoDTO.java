@@ -11,7 +11,7 @@ public class ObraLocalizacaoDTO {
     private String cidade;
 
     @NotBlank
-    private String longitute;
+    private String longitude;
 
     @NotBlank
     private String latitude;
@@ -29,11 +29,11 @@ public class ObraLocalizacaoDTO {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-    public String getLongitute() {
-        return longitute;
+    public String getLongitude() {
+        return longitude;
     }
-    public void setLongitute(String longitute) {
-        this.longitute = longitute;
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
     public String getLatitude() {
         return latitude;
