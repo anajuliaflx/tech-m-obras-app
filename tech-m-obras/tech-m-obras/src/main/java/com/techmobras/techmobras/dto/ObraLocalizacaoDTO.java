@@ -1,7 +1,7 @@
 package com.techmobras.techmobras.dto;
 
 public class ObraLocalizacaoDTO {
-
+   
     private String estado;
 
     private String cidade;

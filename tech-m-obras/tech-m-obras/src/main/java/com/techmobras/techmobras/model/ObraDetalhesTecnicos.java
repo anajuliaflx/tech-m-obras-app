@@ -1,75 +1,29 @@
 package com.techmobras.techmobras.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import com.techmobras.techmobras.enums.ObraRisco;
 import com.techmobras.techmobras.enums.ObraTipo;
 
 @Entity
-public class ObraDetalhesTecnicos implements Serializable {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ObraDetalhesTecnicos {
 
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	@Column(length = 45, nullable = false)
-	private ObraTipo tipo;
-
-	@Column(length = 45, nullable = false)
-	private ObraRisco risco;
-
-	@OneToOne
-	@JoinColumn(name = "idObra")
-	private Obra obraId;
-
-	public ObraDetalhesTecnicos(Long id, ObraTipo tipo, ObraRisco risco, Obra obraId) {
-		this.id = id;
-		this.tipo = tipo;
-		this.risco = risco;
-		this.obraId = obraId;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public ObraTipo getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(ObraTipo tipo) {
-		this.tipo = tipo;
-	}
-
-	public ObraRisco getRisco() {
-		return risco;
-	}
-
-	public void setRisco(ObraRisco risco) {
-		this.risco = risco;
-	}
-
-	public Obra getObraId() {
-		return obraId;
-	}
-
-	public void setObraId(Obra obraId) {
-		this.obraId = obraId;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @OneToOne
+    @JoinColumn(name = "obra_id", referencedColumnName = "id")
+    private Obra obraId;
+    @Enumerated
+    private ObraTipo tipo;
+    @Enumerated
+    private ObraRisco risco;
 
 }
