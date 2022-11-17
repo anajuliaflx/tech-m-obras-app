@@ -18,12 +18,17 @@ public class ObraDetalhesTecnicos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @OneToOne
     @JoinColumn(name = "obra_id", referencedColumnName = "id")
     private Obra obraId;
+
     @Enumerated
+    @Column(nullable = false, length = 45)
     private ObraTipo tipo;
+
     @Enumerated
+    @Column(nullable = false, length = 45)
     private ObraRisco risco;
 
 }

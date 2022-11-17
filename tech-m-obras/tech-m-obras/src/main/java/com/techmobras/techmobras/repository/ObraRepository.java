@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.techmobras.techmobras.model.Obra;
 
 @Repository
-public interface ObraRepository extends JpaRepository<Obra, Long> {
+public interface ObraRepository extends JpaRepository<Obra, Integer> {
 
 }
