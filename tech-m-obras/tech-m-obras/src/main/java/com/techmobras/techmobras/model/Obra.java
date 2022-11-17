@@ -99,7 +99,4 @@ public class Obra implements Serializable {
     public void setTitularidade(String titularidade) {
         this.titularidade = titularidade;
     }
-
-    
-
 }
