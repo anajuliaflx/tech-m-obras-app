@@ -21,7 +21,6 @@ public class ObraDetalhesTecnicos {
 
     @OneToOne
     @JoinColumn(name = "obra_id", referencedColumnName = "id")
-    @Column(nullable = false)
     private Obra obraId;
 
     @Enumerated

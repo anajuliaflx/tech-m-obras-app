@@ -19,7 +19,6 @@ public class Inspecao {
 
     @ManyToOne
     @JoinColumn(name = "obra_inspecao_id", referencedColumnName="id")
-    @Column(nullable = false)
     private ObraInspecao obraInspecaoId;
 
     @Column(nullable = false)
