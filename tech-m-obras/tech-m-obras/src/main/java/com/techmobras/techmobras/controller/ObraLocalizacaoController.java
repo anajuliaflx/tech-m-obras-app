@@ -63,4 +63,17 @@ public class ObraLocalizacaoController {
         obraLocalizacaoService.delete(obraLocalizacaoOptional.get());
         return ResponseEntity.status(HttpStatus.OK).body("Localização deletada com sucesso");
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> uptadeObraLocalizacao(@PathVariable(value = "id") Integer id,
+                                                        @RequestBody @Valid ObraLocalizacaoDTO obraLocalizacaoDTO){
+        Optional<ObraLocalizacao> obraLocalizacaoOptional = obraLocalizacaoService.findById(id);
+        if (!obraLocalizacaoOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Localização não encontrada");
+        }
+        ObraLocalizacao obraLocalizacao = new ObraLocalizacao();
+        BeanUtils.copyProperties(obraLocalizacaoDTO, obraLocalizacao);
+        obraLocalizacao.setId(obraLocalizacaoOptional.get().getId());
+        return ResponseEntity.status(HttpStatus.OK).body(obraLocalizacaoService.save(obraLocalizacao));
+    }
 }
