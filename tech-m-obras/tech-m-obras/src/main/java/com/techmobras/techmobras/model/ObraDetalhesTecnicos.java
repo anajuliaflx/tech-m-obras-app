@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 import com.techmobras.techmobras.enums.ObraRisco;
 import com.techmobras.techmobras.enums.ObraTipo;
@@ -24,11 +25,13 @@ public class ObraDetalhesTecnicos {
     private Obra obraId;
 
     @Enumerated
-    @Column(nullable = false, length = 45)
+    @NotBlank
+    @Column(length = 45)
     private ObraTipo tipo;
 
     @Enumerated
-    @Column(nullable = false, length = 45)
+    @NotBlank
+    @Column(length = 45)
     private ObraRisco risco;
 
 }

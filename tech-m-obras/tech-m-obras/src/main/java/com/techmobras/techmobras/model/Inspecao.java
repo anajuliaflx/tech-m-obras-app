@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+
 import java.time.LocalDate;
 
 @Entity
@@ -21,10 +23,12 @@ public class Inspecao {
     @JoinColumn(name = "obra_inspecao_id", referencedColumnName="id")
     private ObraInspecao obraInspecaoId;
 
-    @Column(nullable = false)
+    @NotBlank
+    @Column
     private LocalDate data;
 
-    @Column(nullable = false)
+    @NotBlank
+    @Column
     private String observacoes;
 
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Data
@@ -16,20 +17,24 @@ public class ObraLocalizacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, length = 45)
+    @NotBlank
+    @Column(length = 45)
     private String cidade;
 
     @OneToOne
     @JoinColumn(name = "obra_id", referencedColumnName = "id")
     private Obra obraId;
 
-    @Column(nullable = false, length = 45)
+    @NotBlank
+    @Column(length = 45)
     private String estado;
 
-    @Column(nullable = false, length = 45)
+    @NotBlank
+    @Column(length = 45)
     private String latitude;
 
-    @Column(nullable = false, length = 45)
+    @NotBlank
+    @Column(length = 45)
     private String longitude;
 
 }

@@ -3,8 +3,9 @@ package com.techmobras.techmobras.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.math.BigInteger;
+import javax.validation.constraints.NotBlank;
 
+import java.math.BigInteger;
 
 @Entity
 @Data
@@ -16,25 +17,32 @@ public class Obra {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, length = 45)
+    @NotBlank
+    @Column(length = 45)
     private String nome;
 
-    @Column(nullable = false)
+    @NotBlank
+    @Column
     private BigInteger anoConstrucao;
 
-    @Column(nullable = false, length = 45)
+    @NotBlank
+    @Column(length = 45)
     private String coordenacao;
 
-    @Column(nullable = false, length = 45)
+    @NotBlank
+    @Column(length = 45)
     private String gerencia;
 
-    @Column(nullable = false, length = 45)
+    @NotBlank
+    @Column(length = 45)
     private String diretoria;
 
-    @Column(nullable = false, length = 45)
+    @NotBlank
+    @Column(length = 45)
     private String outorga;
 
-    @Column(nullable = false, length = 45)
+    @NotBlank
+    @Column(length = 45)
     private String titularidade;
 
 }
