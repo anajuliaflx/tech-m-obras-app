@@ -24,7 +24,7 @@ import com.techmobras.techmobras.service.ObraLocalizacaoService;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/obra_localizacao")
+@RequestMapping("/obra-localizacao")
 public class ObraLocalizacaoController {
 
     final ObraLocalizacaoService obraLocalizacaoService;
