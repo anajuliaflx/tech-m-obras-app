@@ -53,4 +53,14 @@ public class ObraLocalizacaoController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(obraLocalizacaoOptional.get());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteObraLocalizacao(@PathVariable(value = "id") Integer id){
+        Optional<ObraLocalizacao> obraLocalizacaoOptional = obraLocalizacaoService.findById(id);
+        if (!obraLocalizacaoOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Localização não encontrada");
+        }
+        obraLocalizacaoService.delete(obraLocalizacaoOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Localização deletada com sucesso");
+    }
 }

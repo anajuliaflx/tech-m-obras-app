@@ -31,4 +31,10 @@ public class ObraLocalizacaoService {
     public Optional<ObraLocalizacao> findById(Integer id) {
         return obraLocalizacaoRepository.findById(id);
     }
+
+    @Transactional
+    public void delete(ObraLocalizacao obraLocalizacao) {
+        obraLocalizacaoRepository.delete(obraLocalizacao);
+    }
+
 }
