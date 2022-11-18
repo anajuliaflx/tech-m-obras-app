@@ -15,7 +15,7 @@ public class ObraLocalizacaoDTO {
     @NotBlank
     private String longitude;
 
-    @NotBlank
+    @NotBlank 
     private String latitude;
 
 

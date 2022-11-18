@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/obras")
 public class ObraController {
   
-public String index(){
-    return "Ola mundo";
-}
+
 
 }
