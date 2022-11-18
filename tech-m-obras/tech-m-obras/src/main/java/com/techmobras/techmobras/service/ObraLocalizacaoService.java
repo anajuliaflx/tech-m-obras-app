@@ -1,6 +1,7 @@
 package com.techmobras.techmobras.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -27,4 +28,7 @@ public class ObraLocalizacaoService {
         return obraLocalizacaoRepository.findAll();
     }
 
+    public Optional<ObraLocalizacao> findById(Integer id) {
+        return obraLocalizacaoRepository.findById(id);
+    }
 }
