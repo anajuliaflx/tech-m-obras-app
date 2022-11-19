@@ -9,7 +9,7 @@ export default function Home() {
     <div >
     <HeadComponent/>
         <Nav/>
-      <TableConstruction/>
+      <TableConstruction style={styles.container}/>
     <Footer style={styles.footer}/>
     </div>
   )
