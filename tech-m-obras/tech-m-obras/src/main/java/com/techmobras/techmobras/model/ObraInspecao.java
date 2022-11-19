@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.techmobras.techmobras.enums.FrequenciaInspecao;
@@ -27,17 +28,21 @@ public class ObraInspecao {
     private Obra obraId;
 
     @Enumerated
-    @Column(nullable = false, length = 45)
+    @NotBlank
+    @Column(length = 45)
     private FrequenciaInspecao frequencia;
 
-    @Column(nullable = false)
+    @NotBlank
+    @Column
     private int mes;
 
+    @NotBlank
     @Enumerated
-    @Column(nullable = false, length = 45)
+    @Column(length = 45)
     private StatusInspecao status;
 
-    @Column(nullable = false)
+    @NotBlank
+    @Column
     private int prioridade;
 
     @JsonIgnore

@@ -1,5 +1,8 @@
 package com.techmobras.techmobras.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -19,6 +22,19 @@ public class ObraLocalizacaoService {
     @Transactional
     public ObraLocalizacao save(ObraLocalizacao obraLocalizacao) {
         return obraLocalizacaoRepository.save(obraLocalizacao);
+    }
+
+    public List<ObraLocalizacao> findAll() {
+        return obraLocalizacaoRepository.findAll();
+    }
+
+    public Optional<ObraLocalizacao> findById(Integer id) {
+        return obraLocalizacaoRepository.findById(id);
+    }
+
+    @Transactional
+    public void delete(ObraLocalizacao obraLocalizacao) {
+        obraLocalizacaoRepository.delete(obraLocalizacao);
     }
 
 }
