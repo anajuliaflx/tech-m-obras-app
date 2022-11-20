@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Data
@@ -25,7 +25,7 @@ public class Inspecao {
 
     @NotBlank
     @Column
-    private LocalDate data;
+    private Date data;
 
     @NotBlank
     @Column
