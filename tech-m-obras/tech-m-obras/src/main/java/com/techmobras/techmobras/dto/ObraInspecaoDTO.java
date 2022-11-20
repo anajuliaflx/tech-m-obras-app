@@ -4,21 +4,31 @@ import javax.validation.constraints.NotBlank;
 
 import com.techmobras.techmobras.enums.FrequenciaInspecao;
 import com.techmobras.techmobras.enums.StatusInspecao;
+import com.techmobras.techmobras.model.Inspecao;
+import com.techmobras.techmobras.model.Obra;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
 public class ObraInspecaoDTO {
     @NotBlank
-    private FrequenciaInspecao frequencia;
-    
-    @NotBlank
-    private int mes;
+    @Getter @Setter private FrequenciaInspecao frequencia;
 
     @NotBlank
-    private StatusInspecao status;
+    @Getter @Setter private Obra obraId;
 
     @NotBlank
-    private int prioridade;
+    @Getter @Setter private int mes;
+
+    @NotBlank
+    @Getter @Setter private StatusInspecao status;
+
+    @NotBlank
+    @Getter @Setter private int prioridade;
+
+    @NotBlank
+    @Getter @Setter private Inspecao inspecao;
     
 }
