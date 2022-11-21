@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import java.math.BigInteger;
 
@@ -21,8 +22,7 @@ public class Obra {
     @Column(length = 45)
     private String nome;
 
-    @NotBlank
-    @Column
+    @NotNull
     private BigInteger anoConstrucao;
 
     @NotBlank
