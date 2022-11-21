@@ -1,6 +1,4 @@
 import * as React from 'react';
-import FormConstruction from '../FormConstruction';
-
 import TableStructure from './TableStructure';
 
 function createData(
@@ -27,6 +25,5 @@ const rows = [
 export default function TableConstruction({ style }: { style: string }) {
   return (
     <TableStructure style={style} data={rows} />
-    // <FormConstruction/>
   );
 }
