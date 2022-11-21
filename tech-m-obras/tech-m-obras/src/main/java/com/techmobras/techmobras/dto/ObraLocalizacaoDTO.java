@@ -3,19 +3,21 @@ package com.techmobras.techmobras.dto;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 @Data
 public class ObraLocalizacaoDTO {
-   
     @NotBlank
-    private String estado;
+    @Getter @Setter private String estado;
 
     @NotBlank
-    private String cidade;
+    @Getter @Setter private String cidade;
 
     @NotBlank
-    private String longitude;
-
+    @Getter @Setter private String longitude;
+    
     @NotBlank 
-    private String latitude;
+    @Getter @Setter private String latitude;
 
 }
