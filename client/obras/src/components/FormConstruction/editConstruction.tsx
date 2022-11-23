@@ -9,12 +9,43 @@ import {
   Typography,
   Grid,
 } from '@mui/material';
+import MenuItem from '@mui/material/MenuItem';
 import { IFormData } from './Interface'
 
 
 export default function EditFormConstruction() {
   const router = useRouter();
   const { id } = router.query;
+
+  const risco = [
+    {
+      value: 'BAIXO',
+      label: 'Baixo',
+    },
+    {
+      value: 'MEDIO',
+      label: 'Medio',
+    },
+    {
+      value: 'ALTO',
+      label: 'Alto',
+    },
+  ];
+
+  const tipo = [
+    {
+      value: 'HIDRAULICA',
+      label: 'Hidraulica',
+    },
+    {
+      value: 'ESTRUTURAL',
+      label: 'Estrutural',
+    },
+    {
+      value: 'GEOTECNICA',
+      label: 'Geotecnica',
+    },
+  ];
 
   const initialValues: IFormData = {
     nome: '',
@@ -286,6 +317,7 @@ export default function EditFormConstruction() {
             <Grid item xs={4}>
               <TextField
                 variant="outlined"
+                select
                 margin="normal"
                 fullWidth
                 id="tipo"
@@ -297,11 +329,18 @@ export default function EditFormConstruction() {
                 value={formik.values.tipo}
                 error={formik.touched.tipo && Boolean(formik.errors.tipo)}
                 helperText={formik.touched.tipo && formik.errors.tipo}
-              />
+              >
+                {tipo.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+                </TextField>
             </Grid>
             <Grid item xs={4}>
               <TextField
                 variant="outlined"
+                select
                 margin="normal"
                 fullWidth
                 id="risco"
@@ -313,7 +352,13 @@ export default function EditFormConstruction() {
                 value={formik.values.risco}
                 error={formik.touched.risco && Boolean(formik.errors.risco)}
                 helperText={formik.touched.risco && formik.errors.risco}
-              />
+              >
+                {risco.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
             </Grid>
           </Grid>
 

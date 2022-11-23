@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
@@ -9,6 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import InfoIcon from '@mui/icons-material/Info';
 import { red, teal, amber, green } from '@mui/material/colors';
+import Modal from '../Popup';
 
 const theme = createTheme({
   palette: {
@@ -27,17 +28,27 @@ const theme = createTheme({
   },
 });
 
-export default function ActionsButton() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+export default function ActionsButton({ deleteFunc }: { deleteFunc: Function}) {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [deleteModal, setDeleteModal] = useState(false);
   const open = Boolean(anchorEl);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClickOpenMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleCloseMenu = () => {
     setAnchorEl(null);
   };
+
+  const handleDeleteModalOpen = () => {
+    setDeleteModal(true)
+  };
+
+  const handleDeleteModalClose = () => {
+    setDeleteModal(false)
+  };
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -52,7 +63,9 @@ export default function ActionsButton() {
         <Fab
           color="secondary"
           aria-label="delete"
-          title='Deletar'>
+          title='Deletar'
+          onClick={handleDeleteModalOpen}
+        >
           <DeleteIcon />
         </Fab>
         <Fab
@@ -63,7 +76,7 @@ export default function ActionsButton() {
         </Fab>
         <Fab
           aria-controls={open ? 'basic-menu' : undefined}
-          onClick={handleClick}
+          onClick={handleClickOpenMenu}
           color='warning'
           aria-label="menu"
           title='Mais opções'>
@@ -73,16 +86,18 @@ export default function ActionsButton() {
           id="basic-menu"
           anchorEl={anchorEl}
           open={open}
-          onClose={handleClose}
+          onClose={handleCloseMenu}
           MenuListProps={{
             'aria-labelledby': 'menu',
           }}
         >
-          <MenuItem onClick={handleClose}>Inspeções</MenuItem>
-          <MenuItem onClick={handleClose}>Localização</MenuItem>
-          <MenuItem onClick={handleClose}>Detalhes tecnicos</MenuItem>
+          <MenuItem onClick={handleCloseMenu}>Inspeções</MenuItem>
+          <MenuItem onClick={handleCloseMenu}>Localização</MenuItem>
+          <MenuItem onClick={handleCloseMenu}>Detalhes tecnicos</MenuItem>
         </Menu>
       </Box>
+      <Modal openModal={deleteModal} closeModal={handleDeleteModalClose} handleDelete={deleteFunc} title={'Deseja Deletar?'} />
+
     </ThemeProvider>
   );
 }

@@ -1,4 +1,4 @@
-import EditFormConstruction from "../src/components/FormConstruction/EditConstruction";
+import EditFormConstruction from "../src/components/FormConstruction/editConstruction";
 import Nav from "../src/components/Nav";
 import Footer from "../src/components/patterns/Footer";
 import HeadComponent from "../src/components/patterns/Head";
