@@ -94,9 +94,9 @@ export default function ActionsButton({ deleteFunc }: { deleteFunc: Function}) {
             'aria-labelledby': 'menu',
           }}
         >
-          <MenuItem><Link href={"Inspection"}>Inspeções</Link></MenuItem>
+          <MenuItem><Link href={"inspection"}>Inspeções</Link></MenuItem>
           <MenuItem><Link href={"localization"}>Localização</Link></MenuItem>
-          <MenuItem><Link href={"TechnicalDetails"}>Detalhes tecnicos</Link> </MenuItem>
+          <MenuItem><Link href={"details"}>Detalhes tecnicos</Link> </MenuItem>
         </Menu>
       </Box>
       <Modal openModal={deleteModal} closeModal={() => setDeleteModal(false)} handleDelete={deleteFunc} title={'Deseja Deletar?'} />

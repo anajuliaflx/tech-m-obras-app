@@ -10,7 +10,7 @@ import ConstructionIcon from '@mui/icons-material/Construction';
 import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-function Nav(title: string, ref: string, ) {
+function Nav() {
   const router = useRouter()
   return (
     <AppBar position='static'>
@@ -33,8 +33,9 @@ function Nav(title: string, ref: string, ) {
             Obras
           </Typography>
           {router.pathname === "/"? <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <Button href={ref}  color="inherit" variant="outlined">
-              <AddIcon /> {title}
+            <Button color="inherit" variant="outlined">
+              <AddIcon /> Nova Obra
+
             </Button>
           </Box> :
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>

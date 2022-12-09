@@ -13,7 +13,7 @@ import com.techmobras.techmobras.repository.ObraRepository;
 @Service
 public class ObraService {
 
-    final private ObraRepository obrarepository;
+    private final ObraRepository obrarepository;
 
     public ObraService(ObraRepository obrarepository) {
         this.obrarepository = obrarepository;
@@ -24,7 +24,7 @@ public class ObraService {
         return obrarepository.save(obra);
     }
 
-    public List<Obra> findAll(Obra obra) {
+    public List<Obra> findAll() {
         return obrarepository.findAll();
     }
 

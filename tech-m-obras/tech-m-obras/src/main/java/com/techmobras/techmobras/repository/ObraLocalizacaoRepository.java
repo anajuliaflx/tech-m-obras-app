@@ -8,4 +8,6 @@ import com.techmobras.techmobras.model.ObraLocalizacao;
 @Repository
 public interface ObraLocalizacaoRepository extends JpaRepository<ObraLocalizacao, Integer> {
 
+    
+
 }

@@ -1,27 +1,30 @@
 package com.techmobras.techmobras.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ObraLocalizacao {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotBlank
     @Column(length = 45)
     private String cidade;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "obra_id", referencedColumnName = "id")
     private Obra obraId;
 
@@ -36,5 +39,7 @@ public class ObraLocalizacao {
     @NotBlank
     @Column(length = 45)
     private String longitude;
+
+
 
 }

@@ -43,7 +43,19 @@ $ git clone https://github.com/anajuliaflx/tech-m-obras-app.git
 acesse sua ide logo em seguida e abra o projeto na pasta que o mesmo está, apos baixar as dependecias de inicio ao projeto!
 ## ☕ Usando Tech M Obra
 
-Para usar Tech M Obra, assece a rota
+Para usar Tech M Obra, depois de configurar a conexão do banco de dados:
+no arquivo application.resource
+
+```
+spring.datasource.url=jdbc:mysql://{{Endereço do banco de dados}}/db_nome
+spring.datasource.username=Usuario
+spring.datasource.password=Senha
+
+```
+
+> Cuidado! Aconselho não mecher nas outras configurações pode gerar algum error indesejado.
+
+Agora e só rodar a sua aplicação. Acesse esse [link](http://localhost:8080/api) da documentação para testar suas rotas ou consumir no front.
 
 
 
