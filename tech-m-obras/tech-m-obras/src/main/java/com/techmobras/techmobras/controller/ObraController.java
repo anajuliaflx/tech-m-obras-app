@@ -72,17 +72,16 @@ public class ObraController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable(value = "id") Integer id,
+    public ResponseEntity<Object> uptadeObra(@PathVariable(value = "id") Integer id,
             @RequestBody @Valid ObraDTO obraDTO) {
         Optional<Obra> obraOptional = obraService.findById(id);
         if (!obraOptional.isPresent()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Id não encontrado");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Obra não encontrada");
         }
         Obra obra = new Obra();
-        BeanUtils.copyProperties(obraOptional, obra);
+        BeanUtils.copyProperties(obraDTO, obra);
         obra.setId(obraOptional.get().getId());
         return ResponseEntity.status(HttpStatus.OK).body(obraService.save(obra));
-
     }
 }
 
