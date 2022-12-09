@@ -7,18 +7,19 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.techmobras.techmobras.model.ObraDetalhesTecnicos;
 import com.techmobras.techmobras.repository.ObraDetalhesTecnicosRepository;
 
 @Service
-public class ObraDetalhesTecnicos {
+public class ObraDetalhesTecnicosService {
     final private ObraDetalhesTecnicosRepository obraDetalhesTecnicosRepository;
 
-    public ObraDetalhesTecnicos(ObraDetalhesTecnicosRepository obraDetalhesTecnicosRepository) {
+    public ObraDetalhesTecnicosService(ObraDetalhesTecnicosRepository obraDetalhesTecnicosRepository) {
         this.obraDetalhesTecnicosRepository = obraDetalhesTecnicosRepository;
     }
 
-    @Transactional
-    public ObraDetalhesTecnicos save(ObraDetalhesTecnicos obraDetalhesTecnicos) {
+   
+    public com.techmobras.techmobras.model.ObraDetalhesTecnicos save(com.techmobras.techmobras.model.ObraDetalhesTecnicos obraDetalhesTecnicos) {
         return obraDetalhesTecnicosRepository.save(obraDetalhesTecnicos);
     }
 
@@ -32,7 +33,7 @@ public class ObraDetalhesTecnicos {
 
     @Transactional
     public void delete(ObraDetalhesTecnicos obraDetalhesTecnicos) {
-        obraDetalhesTecnicos.delete(obraDetalhesTecnicos);
+        obraDetalhesTecnicosRepository.delete(obraDetalhesTecnicos);
     }
 
 }

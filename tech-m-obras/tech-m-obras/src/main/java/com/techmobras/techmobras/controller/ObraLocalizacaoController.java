@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.techmobras.techmobras.model.dto.ObraLocalizacaoDTO;
+import com.techmobras.techmobras.dto.ObraLocalizacaoDTO;
 import com.techmobras.techmobras.model.ObraLocalizacao;
 import com.techmobras.techmobras.service.ObraLocalizacaoService;
 
@@ -34,19 +34,21 @@ public class ObraLocalizacaoController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> saveObraLocalizacao(@RequestBody @Valid ObraLocalizacaoDTO obraLocalizacaoDTO) {
+    public ResponseEntity<Object> saveObraLocalizacao(@RequestBody @Valid ObraLocalizacaoDTO obraLocalizacaoDTO,
+            @RequestHeader Integer obraId) {
         ObraLocalizacao obraLocalizacao = new ObraLocalizacao();
         BeanUtils.copyProperties(obraLocalizacaoDTO, obraLocalizacao);
+        
         return ResponseEntity.status(HttpStatus.CREATED).body(obraLocalizacaoService.save(obraLocalizacao));
     }
 
     @GetMapping
-    public ResponseEntity<List<ObraLocalizacao>> getAllObraLocalizacao(){
+    public ResponseEntity<List<ObraLocalizacao>> getAllObraLocalizacao() {
         return ResponseEntity.status(HttpStatus.OK).body(obraLocalizacaoService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getOneObraLocalizacao(@PathVariable(value = "id") Integer id){
+    public ResponseEntity<Object> getOneObraLocalizacao(@PathVariable(value = "id") Integer id) {
         Optional<ObraLocalizacao> obraLocalizacaoOptional = obraLocalizacaoService.findById(id);
         if (!obraLocalizacaoOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Localização não encontrada");
@@ -55,7 +57,7 @@ public class ObraLocalizacaoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteObraLocalizacao(@PathVariable(value = "id") Integer id){
+    public ResponseEntity<Object> deleteObraLocalizacao(@PathVariable(value = "id") Integer id) {
         Optional<ObraLocalizacao> obraLocalizacaoOptional = obraLocalizacaoService.findById(id);
         if (!obraLocalizacaoOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Localização não encontrada");
@@ -66,7 +68,7 @@ public class ObraLocalizacaoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> uptadeObraLocalizacao(@PathVariable(value = "id") Integer id,
-                                                        @RequestBody @Valid ObraLocalizacaoDTO obraLocalizacaoDTO){
+            @RequestBody @Valid ObraLocalizacaoDTO obraLocalizacaoDTO) {
         Optional<ObraLocalizacao> obraLocalizacaoOptional = obraLocalizacaoService.findById(id);
         if (!obraLocalizacaoOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Localização não encontrada");

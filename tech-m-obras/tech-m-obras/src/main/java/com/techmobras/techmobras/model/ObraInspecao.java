@@ -2,10 +2,12 @@ package com.techmobras.techmobras.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
 import lombok.NoArgsConstructor;
 
+
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.techmobras.techmobras.enums.FrequenciaInspecao;
@@ -20,7 +22,7 @@ import java.util.Set;
 public class ObraInspecao {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @OneToOne
@@ -28,20 +30,20 @@ public class ObraInspecao {
     private Obra obraId;
 
     @Enumerated
-    @NotBlank
+    @NotNull
     @Column(length = 45)
     private FrequenciaInspecao frequencia;
 
-    @NotBlank
+    @NotNull
     @Column
     private int mes;
 
-    @NotBlank
+    @NotNull
     @Enumerated
     @Column(length = 45)
     private StatusInspecao status;
 
-    @NotBlank
+    @NotNull
     @Column
     private int prioridade;
 
