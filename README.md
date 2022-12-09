@@ -55,9 +55,7 @@ spring.datasource.password=Senha
 
 > Cuidado! Aconselho não mecher nas outras configurações pode gerar algum error indesejado.
 
-Agora e só rodar a sua aplicação. Acesse esse [link](http://localhost:8080/api) da documentação para testar suas rotas ou consumir no front.
-
-
+Agora e só rodar a sua aplicação. Acesse esse [link](http://localhost:8080/api) da documentação para testar suas rotas ou ver as rotas para consumir no front.
 
 ## 🤝 Colaboradores
 
