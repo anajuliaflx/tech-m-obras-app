@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
@@ -10,6 +11,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import InfoIcon from '@mui/icons-material/Info';
 import { red, teal, amber, green } from '@mui/material/colors';
 import Modal from '../Popup';
+import Link from 'next/link';
 
 const theme = createTheme({
   palette: {
@@ -29,6 +31,7 @@ const theme = createTheme({
 });
 
 export default function ActionsButton({ deleteFunc }: { deleteFunc: Function}) {
+  const router = useRouter();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [deleteModal, setDeleteModal] = useState(false);
   const open = Boolean(anchorEl);
@@ -91,12 +94,12 @@ export default function ActionsButton({ deleteFunc }: { deleteFunc: Function}) {
             'aria-labelledby': 'menu',
           }}
         >
-          <MenuItem onClick={handleCloseMenu}>Inspeções</MenuItem>
-          <MenuItem onClick={handleCloseMenu}>Localização</MenuItem>
-          <MenuItem onClick={handleCloseMenu}>Detalhes tecnicos</MenuItem>
+          <MenuItem><Link href={"Inspection"}>Inspeções</Link></MenuItem>
+          <MenuItem><Link href={"localization"}>Localização</Link></MenuItem>
+          <MenuItem><Link href={"TechnicalDetails"}>Detalhes tecnicos</Link> </MenuItem>
         </Menu>
       </Box>
-      <Modal openModal={deleteModal} closeModal={handleDeleteModalClose} handleDelete={deleteFunc} title={'Deseja Deletar?'} />
+      <Modal openModal={deleteModal} closeModal={() => setDeleteModal(false)} handleDelete={deleteFunc} title={'Deseja Deletar?'} />
 
     </ThemeProvider>
   );

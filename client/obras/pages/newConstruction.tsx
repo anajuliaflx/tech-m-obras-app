@@ -4,7 +4,7 @@ import Footer from "../src/components/patterns/Footer";
 import HeadComponent from "../src/components/patterns/Head";
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function NewConstruction() {
   return (
     <div >
       <HeadComponent />

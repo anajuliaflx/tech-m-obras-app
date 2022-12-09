@@ -1,3 +1,4 @@
+import react, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/router';
 import * as Yup from 'yup';
@@ -9,12 +10,29 @@ import {
   Typography,
   Grid,
 } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
 import { NewFormData } from './Interface'
+import api from '../../api';
 
 
 export default function NewFormConstruction() {
+  const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
   const { id } = router.query;
+
+  const onSubmit = async (formData: any) => {
+    setLoading(true);
+    try {
+      const { data } = await api.post('api/obra', formData);
+      if(data){
+        setLoading(false);
+        router.push('/');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
+  };
 
   const initialValues: NewFormData = {
     nome: '',
@@ -24,7 +42,7 @@ export default function NewFormConstruction() {
     diretoria: '',
     outorga: '',
     titularidade: ''
-  }
+  };
 
   const formSchema = Yup.object().shape({
     nome: Yup.string()
@@ -41,12 +59,7 @@ export default function NewFormConstruction() {
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema: formSchema,
-    onSubmit: (values) => {
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
-        formik.setSubmitting(false);
-      }, 3000);
-    },
+    onSubmit,
   });
 
   return (
@@ -186,9 +199,9 @@ export default function NewFormConstruction() {
             size="large"
             variant="contained"
             color="primary"
-            disabled={formik.isSubmitting}
+            disabled={loading && formik.isSubmitting}
           >
-            Salvar
+            {loading && <CircularProgress />}Salvar
           </Button>
         </form>
       </Box >
