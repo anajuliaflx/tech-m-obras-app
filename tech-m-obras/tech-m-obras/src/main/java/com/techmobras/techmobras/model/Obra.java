@@ -15,7 +15,7 @@ import java.math.BigInteger;
 public class Obra {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotBlank
@@ -23,17 +23,18 @@ public class Obra {
     private String nome;
 
     @NotNull
+    @Column(length = 45)
     private BigInteger anoConstrucao;
 
     @NotBlank
     @Column(length = 45)
     private String coordenacao;
 
-    @NotBlank
+    @NotNull
     @Column(length = 45)
     private String gerencia;
 
-    @NotBlank
+    @NotNull
     @Column(length = 45)
     private String diretoria;
 
@@ -45,4 +46,13 @@ public class Obra {
     @Column(length = 45)
     private String titularidade;
 
+    @OneToOne(mappedBy = "obraId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private ObraLocalizacao obraLocalizacao;
+    @OneToOne(mappedBy = "obraId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private ObraDetalhesTecnicos obraDetalhesTecnicos;
+    @OneToOne(mappedBy = "obraId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private ObraInspecao obraInspecao;
+    public Obra(Integer id) {
+        this.id = id;
+    }
 }
