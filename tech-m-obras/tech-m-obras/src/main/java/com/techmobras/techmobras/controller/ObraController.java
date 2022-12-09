@@ -79,7 +79,7 @@ public class ObraController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Id não encontrado");
         }
         Obra obra = new Obra();
-        BeanUtils.copyProperties(obraOptional, obra);
+        BeanUtils.copyProperties(obraDTO, obra);
         obra.setId(obraOptional.get().getId());
         return ResponseEntity.status(HttpStatus.OK).body(obraService.save(obra));
 
