@@ -2,6 +2,7 @@ package com.techmobras.techmobras.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
@@ -23,7 +24,7 @@ public class Inspecao {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "obra_inspecao_id", referencedColumnName="id")
+    @JoinColumn(name = "obra_inspecao_id", referencedColumnName = "id")
     private ObraInspecao obraInspecaoId;
 
     @NotNull

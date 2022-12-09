@@ -31,11 +31,11 @@ public class Obra {
     @Column(length = 45)
     private String coordenacao;
 
-    @NotBlank
+    @NotNull
     @Column(length = 45)
     private String gerencia;
 
-    @NotBlank
+    @NotNull
     @Column(length = 45)
     private String diretoria;
 

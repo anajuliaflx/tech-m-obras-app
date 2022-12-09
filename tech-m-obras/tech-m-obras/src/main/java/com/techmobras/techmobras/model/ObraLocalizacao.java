@@ -1,8 +1,9 @@
 package com.techmobras.techmobras.model;
 
 import lombok.AllArgsConstructor;
-
 import lombok.Getter;
+import lombok.Data;
+
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
@@ -39,7 +40,5 @@ public class ObraLocalizacao {
     @NotBlank
     @Column(length = 45)
     private String longitude;
-
-
 
 }
